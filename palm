@@ -47,8 +47,8 @@ OCTAVEBIN=/scinet/niagara/software/2019b/opt/intel-2019u4/octave/5.2.0/bin/octav
 # it may be necessary to change the variable below to 1.
 # In this case, also, provide the path to a temporary directory where
 # a tiny temporary file can be saved.
-IS_CLUSTER=1
-TEMP_DIR=/tmp
+IS_CLUSTER=0
+TEMP_DIR=$(mktemp -d --tmpdir="${SCRATCH}/HCP_project/tmp")
 
 # =========================================================================
 # Normally there is no need to edit below this line:
@@ -88,7 +88,7 @@ if [[ ${WHICH_TO_RUN} -eq 1 ]] ; then
    if [[ ${OCTAVEBIN} == "" ]] || [[ ! -e $(echo ${OCTAVEBIN} |awk '{print $1}') ]] ; then
       OCTAVECMD=octave
    else
-      OCTAVECMD=${OCTAVEBIN}
+      OCTAVECMD="${OCTAVEBIN}"
    fi
    minver=$(${OCTAVECMD} --version | awk 'NR==1 {print "4.0.0\n" $NF}' | sort -V | head -n 1)
    if [[ "${minver}" != "4.0.0" ]] ; then
@@ -97,7 +97,7 @@ if [[ ${WHICH_TO_RUN} -eq 1 ]] ; then
       # for success should they need by verifying that the *_elapsed.csv was created.
       RUNCMD="addpath('$PALMDIR'); palm ${1+"$@"} ; exit"
    fi
-   ${OCTAVECMD} -q --eval "${RUNCMD}"
+   ${OCTAVECMD} --no-gui --no-history --no-init-file -q --eval "${RUNCMD}"
    status=$?
 elif [[ ${WHICH_TO_RUN} -eq 2 ]] ; then
    if [[ ${MATLABBIN} == "" ]] || [[ ! -e ${MATLABBIN} ]]; then
