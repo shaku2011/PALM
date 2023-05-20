@@ -36,12 +36,12 @@ elseif strcmpi(varargin{1},'logo'),
     showlogo;
 elseif strcmpi(varargin{1},'date'),
     showdate;
-elseif strcmpi(varargin{1},'version'),
-    if nargout == 0,
-        fprintf(showversion);
-    else
-        varargout{1} = showversion;
-    end
+% elseif strcmpi(varargin{1},'version'),
+%     if nargout == 0,
+%         fprintf(showversion);
+%     else
+%         varargout{1} = showversion;
+%     end
 end
 
 % ==============================================================
