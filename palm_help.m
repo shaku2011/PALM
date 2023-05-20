@@ -412,7 +412,8 @@ function showdate
 fprintf('_____________________________________\n');
 fprintf('Anderson M. Winkler\n');
 fprintf('FMRIB / University of Oxford\n');
-fprintf('%s',showversion);
+fprintf('Jun/2021 (github)\n');
+% fprintf('%s',showversion);
 fprintf('http://www.fmrib.ox.ac.uk/fsl\n');
 
 function vstr = showversion
