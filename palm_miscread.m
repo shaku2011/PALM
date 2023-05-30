@@ -244,7 +244,7 @@ switch lower(fext{end})
     case 'gii'
         
         % Read a GIFTI file (no mapped file arrays)
-%        palm_checkprogs; % ensure GIFTI toolbox in the path
+        % palm_checkprogs; % ensure GIFTI toolbox in the path
         X.readwith = 'gifti';
         gii = gifti(X.filename);
         if isfield(gii,'cdata')
