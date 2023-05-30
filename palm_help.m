@@ -415,12 +415,15 @@ fprintf('FMRIB / University of Oxford\n');
 fprintf('%s',showversion);
 fprintf('http://www.fmrib.ox.ac.uk/fsl\n');
 
-function vstr = showversion
+%function vstr = showversion
 % Read the file with the version
-fid = fopen(fullfile(fileparts(mfilename('fullpath')),'palm_version.txt'),'r');
-vstr = textscan(fid,'%s');
-fclose(fid);
+%fid = fopen(fullfile(fileparts(mfilename('fullpath')),'palm_version.txt'),'r');
+%vstr = textscan(fid,'%s');
+%fclose(fid);
 
 % Assemble back as a string
-vstr = sprintf('%s ',vstr{1}{:});
-vstr = sprintf('%s\n',vstr(1:end-1));
+%vstr = sprintf('%s ',vstr{1}{:});
+%vstr = sprintf('%s\n',vstr(1:end-1));
+
+function vstr = showversion
+vstr = 'Jun/2021 (github)';

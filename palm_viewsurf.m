@@ -155,7 +155,7 @@ if palm_isoctave && opts.mapsize > 2^14
 end
 
 % Ensure we gave the programs needed to read the data
-palm_checkprogs;
+%palm_checkprogs;
 
 % Read input files
 dat{1} = palm_miscread(dat{1});
