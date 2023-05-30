@@ -1179,7 +1179,7 @@ while a <= narginx
 end
 
 % Check for the existence of other programs for input/output
-palm_checkprogs;
+%palm_checkprogs;
 
 if Ni == 0
     error('Missing input data (missing "-i").');
